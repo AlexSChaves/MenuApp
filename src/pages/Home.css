@@ -1,0 +1,99 @@
+:root {
+  --primary-color: #f0f0f0;
+  --secondary-color: #c0c0c0;
+  --accent-color: #ff0000;
+  }
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50vw, 1fr));
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  grid-auto-flow: dense;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  grid-row-start: 2;
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--secondary-color);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.option label {
+  font-weight: bold;
+}
+
+.option select {
+  margin: 10px;
+}
+
+.option button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(300px,1fr));
+  grid-template-rows: auto;
+  grid-gap:10px;
+  grid-row-start: 3;
+}
+
+.item {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border:1px solid var(--secondary-color);
+  border-radius:10px;
+  padding:10px;
+}
+
+.buttons-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0 20px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  grid-row-start: 4;
+}
+
+.buttons button {
+  margin-top:10px;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
