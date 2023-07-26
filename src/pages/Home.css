@@ -24,11 +24,11 @@
 }
 
 .options {
-display: grid;
-grid-template-columns: repeat(1, 1fr);
-grid-template-rows: auto;
-grid-gap: 10px;
-grid-row-start: 2;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  grid-row-start: 2;
 }
 
 .option {
@@ -55,6 +55,12 @@ grid-row-start: 2;
   border: none;
   border-radius: 5px;
   padding: 5px;
+}
+
+.option button:disabled {
+  background-color: gray;
+  color: white;
+  cursor: not-allowed;
 }
 
 .items {

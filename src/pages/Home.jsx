@@ -5,10 +5,11 @@ import { crepes, bebidas, cappuccinos, balasDocesGelados } from "../helpers/card
 import Items from "../components/Items";
 
 function Home(props) {
-  const [comidaSelecionada, setComidaSelecionada] = React.useState("");
-  const [bebidaSelecionada, setBebidaSelecionada] = React.useState("");
-  const [cappuccinoSelecionado, setCappuccinoSelecionado] = React.useState("");
-  const [balaDoceGeladoSelecionado, setBalaDoceGeladoSelecionado] = React.useState("");
+  // Definir os estados para cada tipo de item
+  const [comida, setComida] = React.useState("");
+  const [bebida, setBebida] = React.useState("");
+  const [cappuccino, setCappuccino] = React.useState("");
+  const [balaDoceGelado, setBalaDoceGelado] = React.useState("");
 
   const adicionarItem = (item) => {
     props.setComidas({
@@ -31,22 +32,6 @@ function Home(props) {
     }
   };
 
-  const handleChangeComida = (event) => {
-    setComidaSelecionada(event.target.value);
-  };
-
-  const handleChangeBebida = (event) => {
-    setBebidaSelecionada(event.target.value);
-  };
-
-  const handleChangeCappuccino = (event) => {
-    setCappuccinoSelecionado(event.target.value);
-  };
-
-  const handleChangeBalaDoceGelado = (event) => {
-    setBalaDoceGeladoSelecionado(event.target.value);
-  };
-
   const total = Object.entries(props.comidas).reduce((acc, [nome, quantidade]) => {
     const crepe = crepes.find((crepe) => crepe.nome === nome);
     const bebida = bebidas.find((bebida) => bebida.nome === nome);
@@ -64,31 +49,35 @@ function Home(props) {
       <h1 className="title">Iniciar pedido</h1>
       <div className="options">
         <Items
-          nome="comida"
+          gender="um"
+          nome="crepe"
           array={crepes}
-          valor={comidaSelecionada}
-          handleChange={handleChangeComida}
+          valor={comida}
+          handleChange={setComida}
           adicionarItem={adicionarItem}
         />
         <Items
+          gender="uma"
           nome="bebida"
           array={bebidas}
-          valor={bebidaSelecionada}
-          handleChange={handleChangeBebida}
+          valor={bebida}
+          handleChange={setBebida}
           adicionarItem={adicionarItem}
         />
         <Items
+          gender="um"
           nome="cappuccino"
           array={cappuccinos}
-          valor={cappuccinoSelecionado}
-          handleChange={handleChangeCappuccino}
+          valor={cappuccino}
+          handleChange={setCappuccino}
           adicionarItem={adicionarItem}
         />
         <Items
+          gender="uma"
           nome="bala, doce ou gelado"
           array={balasDocesGelados}
-          valor={balaDoceGeladoSelecionado}
-          handleChange={handleChangeBalaDoceGelado}
+          valor={balaDoceGelado}
+          handleChange={setBalaDoceGelado}
           adicionarItem={adicionarItem}
         />
       </div>
@@ -98,9 +87,7 @@ function Home(props) {
         {Object.entries(props.comidas).map(([nome, quantidade]) => (
           <div key={nome} className="item">
             <p>
-              {quantidade}x -{" "}
-              {nome} - R${" "}
-              {(crepes.find((crepe) => crepe.nome === nome)?.valor ||
+              {quantidade}x - {nome} - R$ {(crepes.find((crepe) => crepe.nome === nome)?.valor ||
                 bebidas.find((bebida) => bebida.nome === nome)?.valor ||
                 cappuccinos.find((cappuccino) => cappuccino.nome === nome)?.valor ||
                 balasDocesGelados.find(
@@ -115,9 +102,7 @@ function Home(props) {
         ))}
       </div>
 
-      <div className="total">
-        Valor total: R$ {total.toFixed(2)}
-      </div>
+      <div className="total">Valor total: R$ {total.toFixed(2)}</div>
 
       <div className="buttons">
         <Link to="/revisao">
