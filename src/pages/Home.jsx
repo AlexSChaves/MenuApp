@@ -1,15 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Home.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Home.css";
+import { crepes, bebidas, cappuccinos, balasDocesGelados } from "../helpers/cardapio.js";
+import Items from "../components/Items";
 
 function Home(props) {
-  const comidas = ['Crepe de Frango', 'Crepe de Pizza', 'Crepe de Chocolate', 'Crepe de Queijo'];
-
-  const bebidas = ['Suco de Laranja', 'Suco de Uva', 'Refrigerante', 'Água'];
-
-  const [comidaSelecionada, setComidaSelecionada] = React.useState('');
-
-  const [bebidaSelecionada, setBebidaSelecionada] = React.useState('');
+  const [comidaSelecionada, setComidaSelecionada] = React.useState("");
+  const [bebidaSelecionada, setBebidaSelecionada] = React.useState("");
+  const [cappuccinoSelecionado, setCappuccinoSelecionado] = React.useState("");
+  const [balaDoceGeladoSelecionado, setBalaDoceGeladoSelecionado] = React.useState("");
 
   const adicionarItem = (item) => {
     props.setComidas({
@@ -40,48 +39,74 @@ function Home(props) {
     setBebidaSelecionada(event.target.value);
   };
 
+  const handleChangeCappuccino = (event) => {
+    setCappuccinoSelecionado(event.target.value);
+  };
+
+  const handleChangeBalaDoceGelado = (event) => {
+    setBalaDoceGeladoSelecionado(event.target.value);
+  };
+
+  const total = Object.entries(props.comidas).reduce((acc, [nome, quantidade]) => {
+    const crepe = crepes.find((crepe) => crepe.nome === nome);
+    const bebida = bebidas.find((bebida) => bebida.nome === nome);
+    const cappuccino = cappuccinos.find((cappuccino) => cappuccino.nome === nome);
+    const balaDoceGelado = balasDocesGelados.find(
+      (balaDoceGelado) => balaDoceGelado.nome === nome
+    );
+    const valor =
+      crepe ? crepe.valor : bebida ? bebida.valor : cappuccino ? cappuccino.valor : balaDoceGelado ? balaDoceGelado.valor : 0;
+    return acc + valor * quantidade;
+  }, 0);
 
   return (
     <div className="container">
       <h1 className="title">Iniciar pedido</h1>
       <div className="options">
-        <div className="option">
-          <label htmlFor="comida">Escolha uma comida:</label>
-          <select id="comida" value={comidaSelecionada} onChange={handleChangeComida}>
-            <option value="">Selecione uma opção</option>
-            {comidas.map((comida) => (
-              <option key={comida} value={comida}>
-                {comida}
-              </option>
-            ))}
-          </select>
-          <button onClick={() => adicionarItem(comidaSelecionada)} disabled={!comidaSelecionada}>
-            Adicionar
-          </button>
-        </div>
-
-        <div className="option">
-          <label htmlFor="bebida">Escolha uma bebida:</label>
-          <select id="bebida" value={bebidaSelecionada} onChange={handleChangeBebida}>
-            <option value="">Selecione uma opção</option>
-            {bebidas.map((bebida) => (
-              <option key={bebida} value={bebida}>
-                {bebida}
-              </option>
-            ))}
-          </select>
-
-          <button onClick={() => adicionarItem(bebidaSelecionada)} disabled={!bebidaSelecionada}>
-            Adicionar
-          </button>
-        </div>
+        <Items
+          nome="comida"
+          array={crepes}
+          valor={comidaSelecionada}
+          handleChange={handleChangeComida}
+          adicionarItem={adicionarItem}
+        />
+        <Items
+          nome="bebida"
+          array={bebidas}
+          valor={bebidaSelecionada}
+          handleChange={handleChangeBebida}
+          adicionarItem={adicionarItem}
+        />
+        <Items
+          nome="cappuccino"
+          array={cappuccinos}
+          valor={cappuccinoSelecionado}
+          handleChange={handleChangeCappuccino}
+          adicionarItem={adicionarItem}
+        />
+        <Items
+          nome="bala, doce ou gelado"
+          array={balasDocesGelados}
+          valor={balaDoceGeladoSelecionado}
+          handleChange={handleChangeBalaDoceGelado}
+          adicionarItem={adicionarItem}
+        />
       </div>
 
       <div className="items">
         <h3>Itens selecionados:</h3>
         {Object.entries(props.comidas).map(([nome, quantidade]) => (
           <div key={nome} className="item">
-            <p>{nome} - {quantidade}x</p>
+            <p>
+              {quantidade}x -{" "}
+              {nome} - R${" "}
+              {(crepes.find((crepe) => crepe.nome === nome)?.valor ||
+                bebidas.find((bebida) => bebida.nome === nome)?.valor ||
+                cappuccinos.find((cappuccino) => cappuccino.nome === nome)?.valor ||
+                balasDocesGelados.find(
+                  (balaDoceGelado) => balaDoceGelado.nome === nome
+                )?.valor).toFixed(2)}{" "}
+            </p>
             <div className="buttons-item">
               <button onClick={() => adicionarItem(nome)}>+</button>
               <button onClick={() => removerItem(nome)}>-</button>
@@ -90,11 +115,15 @@ function Home(props) {
         ))}
       </div>
 
+      <div className="total">
+        Valor total: R$ {total.toFixed(2)}
+      </div>
+
       <div className="buttons">
         <Link to="/revisao">
           <button>Revisar pedido</button>
         </Link>
-        <button onClick={() => props.setComidas('')}>Limpar pedido</button>
+        <button onClick={() => props.setComidas("")}>Limpar pedido</button>
       </div>
     </div>
   );

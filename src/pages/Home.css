@@ -6,7 +6,7 @@
 
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(50vw, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(80vw, 1fr));
   grid-template-rows: auto;
   grid-gap: 10px;
   max-width: 800px;
@@ -18,11 +18,11 @@
 }
 
 .options {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto;
-  grid-gap: 10px;
-  grid-row-start: 2;
+display: grid;
+grid-template-columns: repeat(1, 1fr);
+grid-template-rows: auto;
+grid-gap: 10px;
+grid-row-start: 2;
 }
 
 .option {
@@ -83,13 +83,20 @@
   margin: 0 20px;
 }
 
-.buttons {
+.total {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  grid-row-start: 4;
+  }
+
+  .buttons {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
   grid-gap: 10px;
-  grid-row-start: 4;
-}
+  grid-row-start: 5;
+  }
 
 .buttons button {
   margin-top:10px;

@@ -1,62 +1,76 @@
+Ok, eu posso te ajudar a alterar o css para que seja inspirado no home.css. Vou te mostrar o código modificado e explicar o que eu fiz.
+
+Para deixar o css mais parecido com o home.css, você pode usar as mesmas cores, fontes e bordas. Você também pode usar o grid para organizar os elementos na tela. Por exemplo:
+
 :root {
-  --primary-color: #f0f0f0;
-  --secondary-color: #c0c0c0;
-  --accent-color: #ff0000;
+--primary-color: #f0f0f0;
+--secondary-color: #c0c0c0;
+--accent-color: #ff0000;
 }
 
 .container-revisao {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(50vw, 1fr));
-  grid-template-rows: auto;
-  grid-gap: 10px;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 10px;
-  justify-content: center;
-  align-items: center;
-  grid-auto-flow: dense;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(80vw, 1fr));
+grid-template-rows: auto;
+grid-gap: 10px;
+max-width: 800px;
+margin: 0 auto;
+padding: 10px;
+justify-content: center;
+align-items: center;
+grid-auto-flow: dense;
 }
 
 .title-revisao {
-  grid-column: span 2;
-  text-align: center;
-  font-size: 2rem;
- }
+grid-column: span 2;
+text-align: center;
+font-size: 1.5rem;
+}
 
 .items-revisao {
-  display: grid;
-  grid-template-columns: repeat(1, minmax(300px,1fr));
-  grid-template-rows: auto;
-  grid-gap:10px;
-  grid-row-start: 2;
+display: grid;
+grid-template-columns: repeat(1, minmax(300px,1fr));
+grid-template-rows: auto;
+grid-gap:10px;
+grid-row-start: 2;
 }
 
 .item-revisao {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  border:1px solid var(--secondary-color);
-  border-radius:10px;
-  padding:10px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+border:1px solid var(--secondary-color);
+border-radius:10px;
+padding:10px;
+}
+
+.total-revisao {
+display:flex;
+align-items:center;
+justify-content:center;
+grid-row-start:3;
 }
 
 .buttons-revisao {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto;
-  grid-gap: 10px;
-  grid-row-start: 4;
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: auto;
+grid-gap: 10px;
+grid-row-start:4
 }
 
 .buttons-revisao button {
-  margin-top:10px;
-  border-radius: 20px;
-  padding: 10px 20px;
-  font-family: 'Comic Sans MS', sans-serif;
+background-color: var(--accent-color);
+color:white;
+border:none;
+border-radius:5px;
+padding:5px;
+margin-top:10px;
+font-family:'Comic Sans MS', sans-serif;
 }
 
 @media print {
-    .buttons-revisao button {
-    display: none;
-  }
+.buttons-revisao button {
+display:none;
+}
 }
