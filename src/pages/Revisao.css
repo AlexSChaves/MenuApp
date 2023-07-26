@@ -64,21 +64,18 @@
   }
 
   .buttons-revisao {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto;
-  grid-gap: 10px;
-  grid-row-start:4
-  }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 10px;
+    grid-row-start: 5;
+    }
 
   .buttons-revisao button {
-  background-color: var(--accent-color);
-  color:white;
-  border:none;
-  border-radius:5px;
-  padding:5px;
-  margin-top:10px;
-  font-family:'Comic Sans MS', sans-serif;
+    margin-top:10px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-family: 'Comic Sans MS', sans-serif;
   }
 
   @media print {
