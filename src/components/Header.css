@@ -9,31 +9,38 @@
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid;
-}
+  }
 
-.title-header {
+  .title-header {
   text-align: center;
   font-size: 1.7rem;
-}
+  }
 
-.address-header {
+  .address-header {
   grid-row-start: 2;
   text-align: center;
-  /* border: solid red; */
-}
+  }
 
-.contact-header {
+  .contact-header {
   grid-row-start: 3;
-}
+  }
 
-.contact-header a{
+  .contact-header a{
   text-decoration: none;
   color: inherit;
   cursor: default;
-}
+  }
 
-.contact-div {
+  .contact-div {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+  }
+
+
+  @media (max-width: 320px) {
+  .contact-div {
+  display: flex;
+  flex-direction: column;
+  }
+  }

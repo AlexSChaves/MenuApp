@@ -27,11 +27,20 @@ function Revisao({ comidas }) {
 
       <div className="items-revisao">
         {Object.entries(comidas).map(([nome, quantidade]) => (
-          <p key={nome} className="item-revisao">
-            {nome} - R$ {(crepes.find((crepe) => crepe.nome === nome)?.valor || bebidas.find((bebida) => bebida.nome === nome)?.valor || cappuccinos.find((cappuccino) => cappuccino.nome === nome)?.valor || balasDocesGelados.find(
-              (balaDoceGelado) => balaDoceGelado.nome === nome
-            )?.valor).toFixed(2)} - {quantidade}x
-          </p>
+          <div key={nome} className="item-revisao-container">
+            <div className="item-preco">
+              <p className="item-revisao">
+                {nome} - R$ {(crepes.find((crepe) => crepe.nome === nome)?.valor || bebidas.find((bebida) => bebida.nome === nome)?.valor || cappuccinos.find((cappuccino) => cappuccino.nome === nome)?.valor || balasDocesGelados.find(
+                  (balaDoceGelado) => balaDoceGelado.nome === nome
+                )?.valor).toFixed(2)}
+              </p>
+            </div>
+            <div className="item-quantidade">
+              <p className="item-revisao">
+                {quantidade}x
+              </p>
+            </div>
+          </div>
         ))}
       </div>
 
