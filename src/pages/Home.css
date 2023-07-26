@@ -17,6 +17,12 @@
   grid-auto-flow: dense;
 }
 
+.title{
+  text-align: center;
+  border: 1px solid var(--secondary-color);
+  border-radius: 10px;
+}
+
 .options {
 display: grid;
 grid-template-columns: repeat(1, 1fr);
