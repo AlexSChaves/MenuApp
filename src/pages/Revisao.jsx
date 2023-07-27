@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './Revisao.css';
 import { crepes, bebidas, cappuccinos, balasDocesGelados } from '../helpers/cardapio.js';
 
 function Revisao({ comidas }) {
+  const { nome } = useParams();
+
   const imprimir = () => {
     window.print();
   };
@@ -24,7 +26,7 @@ function Revisao({ comidas }) {
 
     <div className="container-revisao">
       <h1 className="title-revisao">Revisão do pedido</h1>
-
+      <h1 className="title-nome">{nome === "Cliente" ? '' : 'Cliente: ' + nome}</h1>
       <div className="items-revisao">
         {Object.entries(comidas).map(([nome, quantidade]) => (
           <div key={nome} className="item-revisao-container">

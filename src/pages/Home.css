@@ -113,13 +113,27 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
   grid-gap: 10px;
-  grid-row-start: 5;
+  grid-row-start: 6;
   }
 
 .buttons button {
   margin-top:10px;
   border-radius: 20px;
   padding: 10px 20px;
+}
+
+.nome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  grid-row-start: 5;
+}
+
+.nome input{
+  padding: 5px;
+  border-radius: 20px;
+  text-align: center;
 }
 
 @media (max-width: 479px) {

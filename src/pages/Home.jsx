@@ -5,10 +5,13 @@ import { crepes, bebidas, cappuccinos, balasDocesGelados } from "../helpers/card
 import Items from "../components/Items";
 
 function Home(props) {
+  const [nome, setNome] = React.useState("");
   const [comida, setComida] = React.useState("");
   const [bebida, setBebida] = React.useState("");
   const [cappuccino, setCappuccino] = React.useState("");
   const [balaDoceGelado, setBalaDoceGelado] = React.useState("");
+
+  const customRoute = 'Cliente';
 
   const adicionarItem = (item) => {
     props.setComidas({
@@ -103,13 +106,23 @@ function Home(props) {
 
       <div className="total">Valor total: R$ {total.toFixed(2)}</div>
 
+      <div className="nome">
+        <label>Nome do cliente (opcional):</label>
+        <input
+          type="text"
+          value={nome}
+          onChange={(e) => setNome(e.target.value)}
+          placeholder="Digite o nome do cliente"
+        />
+      </div>
+
       <div className="buttons">
-        <Link to="/revisao">
+        <Link to={nome === "" ? `/revisao/${customRoute}` : `/revisao/${nome}`}>
           <button>Revisar pedido</button>
         </Link>
         <button onClick={() => props.setComidas("")}>Limpar pedido</button>
       </div>
-    </div>
+    </div >
   );
 }
 export default Home;

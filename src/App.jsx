@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Home comidas={comidas} setComidas={setComidas} />} />
-          <Route path="/revisao" element={<Revisao comidas={comidas} />} />
+          <Route path="/revisao/:nome" element={<Revisao comidas={comidas} />} />
         </Routes>
       </BrowserRouter >
     </div>
