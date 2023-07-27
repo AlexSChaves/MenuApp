@@ -26,6 +26,7 @@ const balasDocesGelados = [
   { nome: "Algodão Doce", valor: 5 },
   { nome: "Batata Original/Churrasco", valor: 5 },
   { nome: "Cremozinho", valor: 2 },
+  { nome: "Picolés 2,5", valor: 2.5 },
   { nome: "Picolés 3", valor: 3 },
   { nome: "Picolés 3,5", valor: 3.5 },
   { nome: "Picolés 4", valor: 4 },
