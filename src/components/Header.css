@@ -1,5 +1,5 @@
 .container-header {
-  display: grid;
+  /* display: grid; */
   grid-template-rows: repeat(auto-fit, minmax(10vh, 1fr));
   grid-template-columns: auto;
   grid-gap: 10px;
@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid;
+  display: none;
   }
 
   .title-header {
@@ -44,3 +45,9 @@
   flex-direction: column;
   }
   }
+
+  @media print {
+    .container-header {
+    display:grid;
+    }
+    }

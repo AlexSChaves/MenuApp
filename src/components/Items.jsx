@@ -3,10 +3,10 @@ import React from "react";
 function Items({ nome, array, gender, valor, handleChange, adicionarItem }) {
   return (
     <div className="option">
-      <label htmlFor={nome}>Escolha {gender} {nome}:</label>
+      <label htmlFor={nome}>{/*Escolha {gender} */}{nome}:</label>
       <select id={nome} value={valor} onChange={(e) => handleChange(e.target.value)}>
         <option value="" disabled>
-          Selecione uma opção
+          Escolha
         </option>
         {array.map((item) => (
           <option key={item.nome} value={item.nome}>

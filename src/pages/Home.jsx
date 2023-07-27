@@ -5,7 +5,6 @@ import { crepes, bebidas, cappuccinos, balasDocesGelados } from "../helpers/card
 import Items from "../components/Items";
 
 function Home(props) {
-  // Definir os estados para cada tipo de item
   const [comida, setComida] = React.useState("");
   const [bebida, setBebida] = React.useState("");
   const [cappuccino, setCappuccino] = React.useState("");
@@ -50,7 +49,7 @@ function Home(props) {
       <div className="options">
         <Items
           gender="um"
-          nome="crepe"
+          nome="Crepes"
           array={crepes}
           valor={comida}
           handleChange={setComida}
@@ -58,7 +57,7 @@ function Home(props) {
         />
         <Items
           gender="uma"
-          nome="bebida"
+          nome="Bebidas"
           array={bebidas}
           valor={bebida}
           handleChange={setBebida}
@@ -66,7 +65,7 @@ function Home(props) {
         />
         <Items
           gender="um"
-          nome="cappuccino"
+          nome="Cappuccinos"
           array={cappuccinos}
           valor={cappuccino}
           handleChange={setCappuccino}
@@ -74,7 +73,7 @@ function Home(props) {
         />
         <Items
           gender="uma"
-          nome="bala, doce ou gelado"
+          nome="Sobremesas"
           array={balasDocesGelados}
           valor={balaDoceGelado}
           handleChange={setBalaDoceGelado}
