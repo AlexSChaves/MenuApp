@@ -14,7 +14,7 @@ const bebidas = [
   { nome: "Refrigerante Lata Outros", valor: 5 },
   { nome: "Coca-Cola Lata", valor: 6 },
   { nome: "Água C/Gás", valor: 3.5 },
-  { nome: "Água S/Gás", valor: 3.5 },
+  { nome: "Água S/Gás", valor: 3 },
   { nome: "Água S/Gás 2X", valor: 5 },
   { nome: "H2O", valor: 6 },
   { nome: "Red Bull", valor: 13 },
